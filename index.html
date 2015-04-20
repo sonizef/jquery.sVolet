@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>sVolet by sonizef</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">sVolet</h1>
+      <h2 class="project-tagline">Créer plusieurs volets sous forme d&#39;accordéon avec une navigation à l&#39;aide de jQuery</h2>
+      <a href="https://github.com/sonizef/jquery.sVolet" class="btn">View on GitHub</a>
+      <a href="https://github.com/sonizef/jquery.sVolet/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sonizef/jquery.sVolet/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="svolet" class="anchor" href="#svolet" aria-hidden="true"><span class="octicon octicon-link"></span></a>sVolet</h1>
+
+<h3>
+<a id="À-quoi-Ça-sert-" class="anchor" href="#%C3%80-quoi-%C3%87a-sert-" aria-hidden="true"><span class="octicon octicon-link"></span></a>À QUOI ÇA SERT ?</h3>
+
+<p>sVolet est un plugin jQuery, qui permet de créer rapidement et facilement plusieurs volets sous forme d'accordéon avec une navigation entre les différents volets à l'aide de flèche "-&gt;" et "&lt;-".</p>
+
+<h3>
+<a id="comment-le-faire-fonctionner-" class="anchor" href="#comment-le-faire-fonctionner-" aria-hidden="true"><span class="octicon octicon-link"></span></a>COMMENT LE FAIRE FONCTIONNER ?</h3>
+
+<p><strong>HTML :</strong></p>
+
+<p>Il faut créer un div qui contiendra tout nos volets.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>volet<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>Dans cette div il faut ajouter une autre div qui contiendra le titre de notre volet, et ajouter l'attribut " <em>data-titreOnglet = '1'</em> " (où ici 1 est le numéro de l'onglet).</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>volet<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">data-titreOnglet</span>=<span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>&gt;Premier Volet&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>On créer juste après une section qui contiendra le contenu de notre volet, en ajouter l'attribut " <em>data-onglet = '1'</em> " (où ici 1 est le numéro de l'onglet).</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>volet<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">data-titreOnglet</span>=<span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>&gt;Premier Volet&lt;/<span class="pl-ent">div</span>&gt;
+    &lt;<span class="pl-ent">section</span> <span class="pl-e">data-onglet</span>=<span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">p</span>&gt;Contenu de mon onglet !&lt;/<span class="pl-ent">p</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>Il faut ensuite suivre la même procédure pour ajouter d'autres onglets.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>volet<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">data-titreOnglet</span>=<span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>&gt;Premier Volet&lt;/<span class="pl-ent">div</span>&gt;
+    &lt;<span class="pl-ent">section</span> <span class="pl-e">data-onglet</span>=<span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">p</span>&gt;Contenu de mon première onglet !&lt;/<span class="pl-ent">p</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">data-titreOnglet</span>=<span class="pl-s"><span class="pl-pds">'</span>2<span class="pl-pds">'</span></span>&gt;Deuxième Volet&lt;/<span class="pl-ent">div</span>&gt;
+    &lt;<span class="pl-ent">section</span> <span class="pl-e">data-onglet</span>=<span class="pl-s"><span class="pl-pds">'</span>2<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">p</span>&gt;Contenu de mon deuxième onglet !&lt;/<span class="pl-ent">p</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">data-titreOnglet</span>=<span class="pl-s"><span class="pl-pds">'</span>3<span class="pl-pds">'</span></span>&gt;Troisième Volet&lt;/<span class="pl-ent">div</span>&gt;
+    &lt;<span class="pl-ent">section</span> <span class="pl-e">data-onglet</span>=<span class="pl-s"><span class="pl-pds">'</span>3<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">p</span>&gt;Contenu de mon troisième onglet !&lt;/<span class="pl-ent">p</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p><strong>JS :</strong></p>
+
+<p>Il faut commencer par importer jQuery, puis ce plugin.</p>
+
+<p>Il faut ensuite appeler le fonction <strong>sVolet()</strong> sur la div qui contient nos volets.</p>
+
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>#volet<span class="pl-pds">'</span></span>).sVolet(); <span class="pl-c">//ici j'utilise l'id de volet.</span></pre></div>
+
+<h3>
+<a id="a-venir-" class="anchor" href="#a-venir-" aria-hidden="true"><span class="octicon octicon-link"></span></a>A VENIR :</h3>
+
+<ul>
+<li>Amélioration graphique des volets et boutons.</li>
+<li>L'utilisateur pourra choisir ses classes à appliquer sur les différents éléments à l'aide d'options.</li>
+</ul>
+
+<h3>
+<a id="changelog-" class="anchor" href="#changelog-" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHANGELOG :</h3>
+
+<p>(20/04/2015) 0.1 : Création du projet</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sonizef/jquery.sVolet">sVolet</a> is maintained by <a href="https://github.com/sonizef">sonizef</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
