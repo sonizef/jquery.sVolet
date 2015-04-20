@@ -1,0 +1,55 @@
+/*
+ * jQuery sVolet
+ * dependancy: jQuery
+ * author: ZEFIRINI Joris
+ * version : 0.1
+*/
+
+À QUOI ÇA SERT ?
+sVolet est un plugin jQuery, qui permet de créer rapidement et facilement plusieurs volets sous forme d'accordéon avec une navigation entre les différents volets à l'aide de flèche "->" et "<-".
+
+COMMENT LE FAIRE FONCTIONNER ?
+
+HTML :
+
+Il faut créer un div qui contiendra tout nos volets.
+
+<div id="volet">
+</div>
+
+Dans cette div il faut ajouter une autre div qui contiendra le titre de notre volet, et ajouter l'attribut " data-titreOnglet = '1' " (où ici 1 est le numéro de l'onglet).
+
+<div id="volet">
+	<div data-titreOnglet='1'>Premier Volet</div>
+</div>
+
+On créer juste après une section qui contiendra le contenu de notre volet, en ajouter l'attribut " data-onglet = '1' " (où ici 1 est le numéro de l'onglet).
+
+<div id="volet">
+	<div data-titreOnglet='1'>Premier Volet</div>
+	<section data-onglet='1'><p>Contenu de mon onglet !</p></section>
+</div>
+
+Il faut ensuite suivre la même procédure pour ajouter d'autres onglets.
+
+<div id="volet">
+	<div data-titreOnglet='1'>Premier Volet</div>
+	<section data-onglet='1'><p>Contenu de mon première onglet !</p></section>
+	<div data-titreOnglet='2'>Deuxième Volet</div>
+	<section data-onglet='2'><p>Contenu de mon deuxième onglet !</p></section>
+	<div data-titreOnglet='3'>Troisième Volet</div>
+	<section data-onglet='3'><p>Contenu de mon troisième onglet !</p></section>
+</div>
+
+JS :
+Il faut commencer par importer jQuery, puis ce plugin.
+Il faut ensuite ajouter cette ligne.
+
+$('#volet').sVolet(); //ici j'utilise l'id de volet.
+
+A VENIR :
+
+
+CHANGELOG :
+
+0.1
